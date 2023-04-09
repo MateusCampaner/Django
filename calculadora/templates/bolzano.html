@@ -1,92 +1,61 @@
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #f2f2f2;
-    }
-    h1 {
-        text-align: center;
-    }
-    form {
-        width: 400px;
-        margin: 0 auto;
-        padding: 20px;
-        background-color: #fff;
-        border-radius: 5px;
-        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
-    }
-    label {
-        display: block;
-        margin-bottom: 5px;
-    }
-    input[type="number"] {
-        width: 100%;
-        padding: 5px;
-        margin-bottom: 10px;
-        border: 1px solid #ccc;
-        border-radius: 3px;
-    }
-    input[type="submit"] {
-        width: 100%;
-        padding: 10px;
-        background-color: #007bff;
-        color: #fff;
-        border: none;
-        border-radius: 3px;
-        cursor: pointer;
-    }
-    ul {
-        margin-top: 20px;
-        list-style-type: none;
-        padding: 0;
-    }
-    li {
-        margin-bottom: 5px;
-    }
-</style>
-
-
-
-
 <!DOCTYPE html>
 <html>
 <head>
     <title>Método de Bolzano</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        form {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        label, input {
+            flex: 1;
+            padding: 5px;
+        }
+
+        input[type="number"] {
+            width: 100px;;
+        }
+        input[type="submit"] {
+            flex: 1;
+            padding: 5px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        ul {
+            margin-top: 20px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+
+
+        
+    </style>
 </head>
 <body>
     <h1>Método de Bolzano</h1>
     <form method="post">
         {% csrf_token %}
-        <label for="a">a:</label>
-        <input type="number" name="a" id="a" step="any">
-        <br>
-        <label for="b">b:</label>
-        <input type="number" name="b" id="b" step="any">
-        <br>
-        <label for="c">c:</label>
-        <input type="number" name="c" id="c" step="any">
-        <br>
-        <label for="d">d:</label>
-        <input type="number" name="d" id="d" step="any">
-        <br>
-        <label for="e">e:</label>
-        <input type="number" name="e" id="e" step="any">
-        <br>
-        <label for="f">f:</label>
-        <input type="number" name="f" id="f" step="any">
-        <br>
-        <label for="g">g:</label>
-        <input type="number" name="g" id="g" step="any">
-        <br>
-        <label for="h">h:</label>
-        <input type="number" name="h" id="h" step="any">
-        <br>
-        <label for="i">i:</label>
-        <input type="number" name="i" id="i" step="any">
-        <br>
-        <label for="j">j:</label>
-        <input type="number" name="j" id="j" step="any">
-        <br>
+        <div> 
+        a<input type="number" name="a" id="a" step="any">
+        b<input type="number" name="b" id="b" step="any">
+        c<input type="number" name="c" id="c" step="any">
+        d<input type="number" name="d" id="d" step="any">
+        e<input type="number" name="e" id="e" step="any">
+        f<input type="number" name="f" id="f" step="any">
+        g<input type="number" name="g" id="g" step="any">
+        h<input type="number" name="h" id="h" step="any">
+        i<input type="number" name="i" id="i" step="any">
+        j<input type="number" name="j" id="j" step="any">
+    </div>
+        <div>           
         <input type="submit" value="Calcular">
+    </div>
     </form>
     {% if resultado %}
         <h2>Resultado do Método de Bolzano:</h2>

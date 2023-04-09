@@ -78,7 +78,8 @@ def metodo_bolzano(request):
             else:
                 resultados_bisseccao.append(intervalo)
 
-        return render(request, 'bolzano.html', {'resultado': resultados_bolzano, 'resultado_biseccao' : resultados_bisseccao})
+    return render(request, 'bolzano.html', {'resultado': resultados_bolzano, 'resultado_biseccao' : resultados_bisseccao})
+    
 
 
 
