@@ -18,12 +18,39 @@
         <input type="text" name="i" placeholder="Digite o coeficiente 9">
         <input type="text" name="j" placeholder="Digite o coeficiente 10">
         <br>
-        <input type="submit" name="calcular" value="Calcular">
+        <input type="submit" value="Calcular">
     </form>
-    <ul>
-        {% for par_x_valores in pares_x_valores_filtrados %}
-            <li>Par de valores filtrados: {{ par_x_valores.0 }} e {{ par_x_valores.1 }}</li>
-        {% endfor %}
-    </ul>
+    {% if resultado %}
+        <h2>Resultado:</h2>
+        <p>{{ resultado }}</p>
+    {% endif %}
+    {% if resultado_f %}
+        <h2>Resultado da função f:</h2>
+        <p>{{ resultado_f }}</p>
+    {% endif %}
 </body>
+<h1>Método de Bolzano</h1>
+<form method="post" action="/met_bolzano/">
+    {% csrf_token %}
+    <input type="text" name="a" placeholder="Digite o coeficiente 1">
+    <input type="text" name="b" placeholder="Digite o coeficiente 2">
+    <input type="text" name="c" placeholder="Digite o coeficiente 3">
+    <input type="text" name="d" placeholder="Digite o coeficiente 4">
+    <input type="text" name="e" placeholder="Digite o coeficiente 5">
+    <input type="text" name="f" placeholder="Digite o coeficiente 6">
+    <input type="text" name="g" placeholder="Digite o coeficiente 7">
+    <input type="text" name="h" placeholder="Digite o coeficiente 8">
+    <input type="text" name="i" placeholder="Digite o coeficiente 9">
+    <input type="text" name="j" placeholder="Digite o coeficiente 10">
+    <br>
+    <input type="submit" value="Calcular">
+</form>
+{% if resultado %}
+    <h2>Resultado:</h2>
+    <p>{{ resultado }}</p>
+{% endif %}
+{% if resultado_f %}
+    <h2>Resultado da função f:</h2>
+    <p>{{ resultado_f }}</p>
+{% endif %}
 </html>

@@ -24,4 +24,5 @@ urlpatterns = [
     path('bolzano/', views.metodo_bolzano, name='bolzano  '),
     path('filtrar_valores/', views.filtrar_valores, name='filtrar_valores'),
     path('met_bolzano/', views.met_bolzano, name='met_bolzano'),
+    path('calcular/', views.calcular, name='calcular'),
 ]

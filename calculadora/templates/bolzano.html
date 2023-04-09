@@ -1,3 +1,52 @@
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+    }
+    h1 {
+        text-align: center;
+    }
+    form {
+        width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    }
+    label {
+        display: block;
+        margin-bottom: 5px;
+    }
+    input[type="number"] {
+        width: 100%;
+        padding: 5px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+    }
+    input[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+    ul {
+        margin-top: 20px;
+        list-style-type: none;
+        padding: 0;
+    }
+    li {
+        margin-bottom: 5px;
+    }
+</style>
+
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,23 +54,55 @@
 </head>
 <body>
     <h1>Método de Bolzano</h1>
-    <form method="post" action="/bolzano/">
+    <form method="post">
         {% csrf_token %}
-        <input type="text" name="a" placeholder="Digite o coeficiente de x^9">
-        <input type="text" name="b" placeholder="Digite o coeficiente de x^8">
-        <input type="text" name="c" placeholder="Digite o coeficiente de x^7">
-        <input type="text" name="d" placeholder="Digite o coeficiente de x^6">
-        <input type="text" name="e" placeholder="Digite o coeficiente de x^5">
-        <input type="text" name="f" placeholder="Digite o coeficiente de x^4">
-        <input type="text" name="g" placeholder="Digite o coeficiente de x^3">
-        <input type="text" name="h" placeholder="Digite o coeficiente de x^2">
-        <input type="text" name="i" placeholder="Digite o coeficiente de x^1">
-        <input type="text" name="j" placeholder="Digite o coeficiente de x^0">
+        <label for="a">a:</label>
+        <input type="number" name="a" id="a" step="any">
         <br>
-        <input type="submit" name="calcular" value="Calcular">
+        <label for="b">b:</label>
+        <input type="number" name="b" id="b" step="any">
+        <br>
+        <label for="c">c:</label>
+        <input type="number" name="c" id="c" step="any">
+        <br>
+        <label for="d">d:</label>
+        <input type="number" name="d" id="d" step="any">
+        <br>
+        <label for="e">e:</label>
+        <input type="number" name="e" id="e" step="any">
+        <br>
+        <label for="f">f:</label>
+        <input type="number" name="f" id="f" step="any">
+        <br>
+        <label for="g">g:</label>
+        <input type="number" name="g" id="g" step="any">
+        <br>
+        <label for="h">h:</label>
+        <input type="number" name="h" id="h" step="any">
+        <br>
+        <label for="i">i:</label>
+        <input type="number" name="i" id="i" step="any">
+        <br>
+        <label for="j">j:</label>
+        <input type="number" name="j" id="j" step="any">
+        <br>
+        <input type="submit" value="Calcular">
     </form>
-    {% if resultado is not None %}
-    <h2>{{ resultado }}</h2>
+    {% if resultado %}
+        <h2>Resultado do Método de Bolzano:</h2>
+        <ul>
+            {% for intervalo in resultado %}
+                <li>{% if intervalo|length > 1 %}{{ intervalo.0 }} até {{ intervalo.1 }}{% else %}{{ intervalo }}{% endif %}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    {% if resultado_biseccao %}
+        <h2>Resultado do Método da Bissecção:</h2>
+        <ul>
+            {% for intervalo in resultado_biseccao %}
+                <li>{% if intervalo|length > 1 %}{{ intervalo.0 }} até {{ intervalo.1 }}{% else %}{{ intervalo }}{% endif %}</li>
+            {% endfor %}
+        </ul>
     {% endif %}
 </body>
 </html>
