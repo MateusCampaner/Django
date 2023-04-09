@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Valores Filtrados</title>
+</head>
+<body>
+    <h1>Valores Filtrados</h1>
+    <ul>
+        {% for par_x_valores in pares_x_valores_filtrados %}
+            <li>Par de valores filtrados: {{ par_x_valores.0 }} e {{ par_x_valores.1 }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

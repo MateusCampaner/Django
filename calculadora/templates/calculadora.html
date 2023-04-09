@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculadora</title>
+</head>
+<body>
+    <h1>Calculadora</h1>
+    <form method="post" action="/calculadora/">
+        {% csrf_token %}
+        <input type="text" name="num1" placeholder="Digite o primeiro número">
+        <input type="text" name="num2" placeholder="Digite o segundo número">
+        <br>
+        <input type="submit" name="add" value="Somar">
+        <input type="submit" name="subtract" value="Subtrair">
+        <input type="submit" name="multiply" value="Multiplicar">
+        <input type="submit" name="divide" value="Dividir">
+        <!-- Atualização aqui -->
+        {% if resultado is not None %}
+        Resultado:
+        <input type="text" name="resultado" value="{{ resultado }}" readonly>
+        {% endif %}
+    </form>
+</body>
+</html>
