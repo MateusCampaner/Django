@@ -3,6 +3,8 @@
 <head>
     <title>Método de Bolzano</title>
     <style>
+
+        
         body {
             font-family: Arial, sans-serif;
         }
@@ -35,7 +37,7 @@
         #grad {
             margin-bottom: 18%;
             text-align: center;
-            background-color:  rgb(143, 141, 120);
+            background-color:  rgb(161, 207, 179);
         }
 
         .container-parent {
@@ -59,11 +61,25 @@
             padding: 10px;
             border: 1px solid black;
         }
+
+                    /* Estilo para o cabeçalho */
+                .header {
+            background-color: #f2f2f2; /* Cor de fundo */
+            padding: 20px; /* Espaçamento interno */
+            font-size: 35px; /* Tamanho da fonte */
+            color: #333; /* Cor do texto */
+            font-weight: bold; /* Peso da fonte */
+        }
+        
         
     </style>
+    <head>
+<header>
+    <h1 class="header">Método de Bolzano</h1>
+  </header>
 </head>
 <body id="grad">
-    <h1>Método de Bolzano</h1>
+    <h1>Insira os valores da função abaixo :</h1>
     <form method="post">
         {% csrf_token %}
         <div> 
@@ -93,7 +109,7 @@
         </form>
         {% if resultado %}
             <h2>Resultado do Método de Bolzano:</h2>
-            <p>Determinação dos intervalos:</p>
+            <p>Determinação dos intervalos da intersecção:</p>
             <ul>
                 {% for intervalo in resultado %}
                     <li style="margin-right: 10px;">{% if intervalo|length > 1 %}{{ intervalo.0 }} até {{ intervalo.1 }}{% else %}{{ intervalo }}{% endif %}</li>
