@@ -82,9 +82,7 @@ def metodo_bolzano(request):
                         a = c
             else:
                 resultados_bisseccao.append(intervalo)
-
-            resultados_bisseccao = []
-            resultados_bolzano = []    
+  
         
     return render(request, 'bolzano.html', {'resultado': resultados_bolzano, 'resultado_biseccao' : resultados_bisseccao})
 
@@ -92,12 +90,10 @@ def metodo_bolzano(request):
     resultados_bolzano = []
     resultados_bisseccao = []
 
+def limpar_resultado(request):
+    resultados_bisseccao = []
+    resultados_bolzano = [] 
     
-
-
-
-
-
 
 def met_bolzano(request):
     raizes = []
